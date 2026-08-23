@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>when is it?</title>
+</head>
+<body>
+    
+    <p>
+        <span id="timer"> ... </span>
+    </p>
+
+<script>
+
+    let update = new Date("2026-08-28T20:00:00").getTime();
+    let timer = document.getElementById("timer");
+
+    function calcTime() 
+    {
+        let now = new Date().getTime();
+        let time = Math.floor((update - now) / 1000);
+
+        if (time <= 0) 
+        {
+            clearInterval(interval);
+            timer.textContent = "out now";
+            return;
+        }
+
+        let h = Math.floor(time / 3600);
+        let m = Math.floor((time % 3600) / 60);
+        let s = time % 60;
+
+        h = h < 10 ? "0" + h : h;
+        m = m < 10 ? "0" + m : m;
+        s = s < 10 ? "0" + s : s;
+
+        timer.textContent = h + ":" + m + ":" + s;
+    }
+
+    window.onload = function () 
+    {
+        calcTime();
+        let interval = setInterval(function () 
+        {
+            calcTime();
+        }, 1000);   
+    };
+
+</script>
+</body>
+</html>
