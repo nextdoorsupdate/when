@@ -98,7 +98,7 @@ button
         if(days)
         {
             d = Math.floor(h / 24);
-            h = Math.floor(h / 4);
+            h = Math.floor(h % 24);
 
             d = d < 10? "0" + d : d;
         }
