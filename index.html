@@ -3,12 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>when is it?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 </head>
+<style>
+
+body
+{
+    font-family: "Oswald";
+    font-weight: bold;
+    color: black;
+    background-color: black;
+
+    background-image: url("assets/backgroundtest.png");
+    background-size: cover;
+}
+
+.center 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 250px;
+}
+
+p
+{
+    text-align: center;
+}
+
+button
+{
+    background-color: black;
+    text-align: center;
+    color: #000000;
+    text-shadow: -1px -1px 0 #969696, 1px -1px 0 #969696, -1px 1px 0 #969696, 1px 1px 0 #969696;
+
+    background-image: linear-gradient(#8d8d8d, #969696, #525252, #000);
+
+    border-radius: 4px;
+}
+
+#timer
+{
+    text-align: center;
+    font-size: 196px;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+.btnActive
+{
+
+}
+
+</style>
 <body>
     
-    <p>
+    <div class="showday">
+        <button id="off" onclick="days = false; calcTime()"> show hours </button>
+        <button id="on" onclick="days = true; calcTime()"> show days </button>
+    </div>
+
+    <p class="center">
         <span id="timer"> ... </span>
     </p>
 
@@ -16,6 +75,8 @@
 
     let update = new Date("2026-08-28T20:00:00").getTime();
     let timer = document.getElementById("timer");
+
+    let days = false;
 
     function calcTime() 
     {
@@ -29,15 +90,25 @@
             return;
         }
 
+        let d = 0;
         let h = Math.floor(time / 3600);
         let m = Math.floor((time % 3600) / 60);
         let s = time % 60;
+
+        if(days)
+        {
+            d = Math.floor(h / 24);
+            h = Math.floor(h / 4);
+
+            d = d < 10? "0" + d : d;
+        }
 
         h = h < 10 ? "0" + h : h;
         m = m < 10 ? "0" + m : m;
         s = s < 10 ? "0" + s : s;
 
-        timer.textContent = h + ":" + m + ":" + s;
+        timer.textContent = (days? d + ":" : "") + h + ":" + m + ":" + s;
+
     }
 
     window.onload = function () 
