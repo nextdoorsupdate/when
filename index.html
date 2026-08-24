@@ -7,76 +7,59 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="assets/clock.ico">
 </head>
-<style>
+<body>  
 
-body
-{
-    font-family: "Oswald";
-    font-weight: bold;
-    color: black;
-    background-color: black;
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="">archives update</a></li>
+                <li><a href="glitch.html">??? update</a></li>
+                <li><a href="glitch.html">floor 3 update</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    background-image: url("assets/backgroundtest.png");
-    background-size: cover;
-}
+    <main>   
+        <div class="button">
+            <button id="btn" onclick="btnClick(this)"> show days </button>
+        </div>
+        <div class="container">
+            <img src="assets/backgroundtest2.png" alt="background image" oncontextmenu="return false;" ondrag="return false;">
+        
+            <div class="textcontainer">
+                <span id="timer"> ... </span>
+            </div>
+        </div>
+    </main>
 
-.center 
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin-top: 250px;
-}
-
-p
-{
-    text-align: center;
-}
-
-button
-{
-    background-color: black;
-    text-align: center;
-    color: #000000;
-    text-shadow: -1px -1px 0 #969696, 1px -1px 0 #969696, -1px 1px 0 #969696, 1px 1px 0 #969696;
-
-    background-image: linear-gradient(#8d8d8d, #969696, #525252, #000);
-
-    border-radius: 4px;
-}
-
-#timer
-{
-    text-align: center;
-    font-size: 196px;
-    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
-}
-
-.btnActive
-{
-
-}
-
-</style>
-<body>
-    
-    <div class="showday">
-        <button id="off" onclick="days = false; calcTime()"> show hours </button>
-        <button id="on" onclick="days = true; calcTime()"> show days </button>
-    </div>
-
-    <p class="center">
-        <span id="timer"> ... </span>
-    </p>
+    <footer>
+        <div>
+            <span>
+                <a class="DOORS" href="https://www.roblox.com/games/6516141723/DOORS">DOORS 👁️</a> by <a class="LSPLASH" href="https://www.roblox.com/communities/3049798/LSPLASH">LSPLASH</a>. This website is not affiliated in any way with <a class="LSPLASH" href="https://www.roblox.com/communities/3049798/LSPLASH">LSPLASH</a> or any of the developers or the game or anything at all. 
+            </span>
+        </div>
+        </div>
+    </footer>
 
 <script>
 
-    let update = new Date("2026-08-28T20:00:00").getTime();
+    let update = new Date("2026-08-28T20:00:00+02:00").getTime();
     let timer = document.getElementById("timer");
 
     let days = false;
+
+    function btnClick(btn)
+    {
+        days = !days; 
+        calcTime(); 
+
+        timer.style.fontSize = days? "6.4vw" : "8.4vw";
+        btn.textContent = days? "show hours" : "show days";
+    }
 
     function calcTime() 
     {
@@ -86,7 +69,8 @@ button
         if (time <= 0) 
         {
             clearInterval(interval);
-            timer.textContent = "out now";
+            timer.textContent = "OUT NOW";
+            document.title = "OUT NOW";
             return;
         }
 
@@ -107,7 +91,9 @@ button
         m = m < 10 ? "0" + m : m;
         s = s < 10 ? "0" + s : s;
 
-        timer.textContent = (days? d + ":" : "") + h + ":" + m + ":" + s;
+        let out = (days ? d + ":" : "") + h + ":" + m + ":" + s;
+        timer.textContent = out;
+        document.title = out;
 
     }
 

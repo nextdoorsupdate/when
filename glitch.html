@@ -1,0 +1,173 @@
+<html lang='en'>
+
+<head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <meta charset='utf-8'>
+    <meta content='width=device-width' name='viewport'>
+    <meta content='#000000' name='theme-color'>
+    <meta content='noindex' name='robots'>
+    <link rel="icon" type="image/x-icon" href="assets/glitch.ico">
+    <title>ERROR 404: PAGE NOT FOUND</title>
+</head>
+
+<body style="background-color: black;">
+    <main>
+        <script crossorigin='anonymous'
+            integrity='sha512-yBpuflZmP5lwMzZ03hiCLzA94N0K2vgBtJgqQ2E1meJzmIBfjbb7k4Y23k2i2c/rIeSUGc7jojyIY5waK3ZxCQ=='
+            referrerpolicy='no-referrer'
+            src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.slim.min.js'></script>
+        <script crossorigin='anonymous'
+            integrity='sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA=='
+            referrerpolicy='no-referrer'
+            src='https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js'></script>
+
+        <div id="center">
+            <div class="glitch" id="glitch_sleep">
+                <img alt="glitch" class="glitch1" src="assets/image_glitch.png">
+                <img alt="glitch" class="glitch2" src="assets/image_glitch.png">
+            </div>
+        </div>
+        <style>
+
+            body
+            {
+                background-image: url("assets/bg_glitch.png");
+                background-repeat: repeat;
+            }
+
+            .glitch {
+                min-width: 320px;
+                max-width: 100%;
+                min-height: 320px;
+                max-height: 100%;
+                position: relative;
+                color: black;
+                cursor: pointer;
+            }
+
+            .glitch img {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+                image-rendering: pixelated;
+            }
+
+            .glitch2 {
+                opacity: 0;
+            }
+
+            html {
+                position: relative;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            @font-face {
+                font-family: '8bitOperatorPlus-Bold';
+                src: url("/assets/fonts/8bitOperatorPlus-Bold.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/8bitOperatorPlus-Bold.woff") format("woff"), url("/assets/fonts/8bitOperatorPlus-Bold.ttf") format("truetype"), url("/assets/fonts/8bitOperatorPlus-Bold.svg#8bitOperatorPlus-Bold") format("svg");
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            @font-face {
+                font-family: '8bitOperatorPlus-Regular';
+                src: url("/assets/fonts/8bitOperatorPlus-Regular.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/8bitOperatorPlus-Regular.woff") format("woff"), url("/assets/fonts/8bitOperatorPlus-Regular.ttf") format("truetype"), url("/assets/fonts/8bitOperatorPlus-Regular.svg#8bitOperatorPlus-Bold") format("svg");
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            body {
+                background-color: black;
+                color: #ffffff;
+                font-family: "8bitOperatorPlus-Bold", monospace;
+                padding: 0;
+                margin: 0;
+            }
+
+            .hidden {
+                display: none !important;
+            }
+
+            #center {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+
+            #ytand {
+                position: relative;
+                display: grid;
+                width: 100vw;
+                height: 100vh;
+                margin: 0;
+                color: #353535;
+                place-items: center center;
+            }
+
+            #ytand #image {
+                width: 100vw;
+                height: 100vh;
+                background-repeat: repeat;
+            }
+
+            #ytand #text {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 810px;
+                z-index: 10;
+                text-align: center;
+                font-family: Tahoma, sans-serif;
+            }
+
+            #ytand #text div {
+                position: absolute;
+                width: 810px;
+            }
+        </style>
+        <script>
+
+            var results = new Howl({
+                src: ['assets/mus_glitch.ogg'],
+                volume: 1,
+                loop: true
+            });
+
+            $(document).on('click', '.glitch:not(.playing)', function () 
+            {
+                results.play();
+                
+                $('.glitch').addClass('playing');
+                $('.glitch1').css('opacity', 0);
+                $('.glitch2').css('opacity', 1);
+            });
+
+            $(document).on('click', '.glitch.playing', function () 
+            {
+                results.pause();
+                
+                $('.glitch').removeClass('playing');
+                $('.glitch1').css('opacity', 1);
+                $('.glitch2').css('opacity', 0);
+            });
+
+        </script>
+
+    </main>
+    <script
+        defer>if (!window.plausibleloaded) { window.plausibleloaded = true; var onloadfunc = function () { !function () { "use strict"; var t = window.location, e = window.document; function a(t, e) { t && console.warn("Ignoring Event: " + t), e && e.callback && e.callback() } function n(n, i) { if (/^localhost$|^127(\.[0-9]+){0,2}\.[0-9]+$|^\[::1?\]$/.test(t.hostname) || "file:" === t.protocol) return a("localhost", i); if (window._phantom || window.__nightmare || window.navigator.webdriver || window.Cypress) return a(null, i); try { if ("true" === window.localStorage.plausible_ignore) return a("localStorage flag", i) } catch (r) { } var l = {}, o = (l.n = n, l.u = t.href, l.d = "deltarune.com", l.r = e.referrer || null, i && i.meta && (l.m = JSON.stringify(i.meta)), i && i.props && (l.p = i.props), new XMLHttpRequest); o.open("POST", "https://plausible.fangamer.eu/api/event", !0), o.setRequestHeader("Content-Type", "text/plain"), o.send(JSON.stringify(l)), o.onreadystatechange = function () { 4 === o.readyState && i && i.callback && i.callback() } } e.currentScript; var i = window.plausible && window.plausible.q || []; window.plausible = n; for (var r, l = 0; l < i.length; l++)n.apply(this, i[l]); function o() { r !== t.pathname && (r = t.pathname, n("pageview")) }; o(); }(); }; onloadfunc(); }</script>
+
+    <script type="module"
+        src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496"
+        integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ=="
+        data-cf-beacon='{"version":"2024.11.0","token":"377f50f2716b474ea394c9bbd3aaef87","r":1}'
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
