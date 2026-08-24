@@ -17,9 +17,9 @@
         <div id="logo"></div>
         <nav class="navbar">
             <ul>
-                <li><a href="">Archives Update</a></li>
-                <li><a href="glitch.html">??? Update</a></li>
-                <li><a href="glitch.html">Floor 3 Update</a></li>
+                <li><a href="#" class="navlink active" onclick="changeActive(this)">Archives Update</a></li>
+                <li><a href="glitch.html" class="navlink" onclick="changeActive(this)">??? Update (Page Not Finished)</a></li>
+                <li><a href="glitch.html" class="navlink" onclick="changeActive(this)">Floor 3 Update (Page Not Finished)</a></li>
             </ul>
         </nav>
     </header>
@@ -43,7 +43,6 @@
                 <a class="DOORS" href="https://www.roblox.com/games/6516141723/DOORS">DOORS 👁️</a> by <a class="LSPLASH" href="https://www.roblox.com/communities/3049798/LSPLASH">LSPLASH</a>. This website is not affiliated in any way with <a class="LSPLASH" href="https://www.roblox.com/communities/3049798/LSPLASH">LSPLASH</a> or any of the developers or the game or anything at all. 
             </span>
         </div>
-        </div>
     </footer>
 
 <script>
@@ -52,6 +51,18 @@
     let timer = document.getElementById("timer");
 
     let days = false;
+
+    function changeActive(newActive)
+    {
+        let navs = document.getElementsByClassName("navlink");
+
+        for(let i of navs)
+        {
+            i.classList.remove("active");
+        }
+
+        newActive.classList.add("active");
+    }
 
     function btnClick(btn)
     {
