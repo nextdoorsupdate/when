@@ -235,6 +235,12 @@ main
     #timer {
         font-size: 11.53cqh;
     }
+
+    nav a
+    {
+        padding: 3px;
+        font-size: 10px;
+    }
 }
 
 footer 
