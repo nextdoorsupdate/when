@@ -4,9 +4,9 @@
     --bg: #1E100F;
 }
 
-
-* {
-    margin: 0px;
+* 
+{
+    margin: 0;
     padding: 0;
 }
 
@@ -39,18 +39,25 @@ a
 header 
 {
     width: 100%;
-    min-height: 50px;
+    min-height: 120px;
+    max-height: 120px;
+
     background: var(--bg);
     color: var(--text);
 
     display: flex;
     align-items: center;
+
+    contain: strict;
 }
 
 #logo 
 {
+
     z-index: 11;
-    margin-left: 20px;
+    margin: 0 30px;
+
+    padding: 15px;
 
     width: 90px;
     height: 90px;
@@ -60,7 +67,8 @@ header
     background-image: url("assets/logo.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
+    background-clip: border-box;
 }
 
 .navbar 
@@ -84,8 +92,7 @@ header
 
 .navbar li 
 {
-    margin: 15px clamp(3px, 1vw, 15px);
-
+    margin: clamp(3px, 0.8vw, 10px);
     min-width: 0;
     flex-shrink: 1;
 }
@@ -94,7 +101,7 @@ header
 {
     display: inline-block;
 
-    padding: clamp(3px, 0.5vw, 12px) clamp(5px, 0.8vw, 15px);
+    padding: clamp(6px, 1vw, 12px) clamp(8px, 2vh, 18px);
 
     border: 2px ridge transparent;
     border-radius: 10px;
@@ -102,7 +109,7 @@ header
     color: var(--text);
     text-decoration: none;
 
-    font-size: clamp(8px, 1.2vw, 18px);
+    font-size: clamp(15px, 2.4vw, 30px);
 
     white-space: nowrap;
 
@@ -128,8 +135,8 @@ button
 {
     z-index: 10;
     position: fixed;
-    right: 25px;
-    bottom: 90px;
+    left: 5px;
+    top: 125px;
 
     padding: 10px;
 
@@ -173,7 +180,7 @@ main
     container-type: size;
 }
 
-#timerImg 
+.timerImg 
 {
     height: 100%;
     width: auto;
@@ -188,6 +195,11 @@ main
     background-size: cover;
 }
 
+#timerSep18
+{
+    background-image: url("assets/old_bg_glitch.png");
+}
+
 .textcontainer 
 {
     font-family: "Protest Revolution";
@@ -200,7 +212,12 @@ main
         
 }
 
-#timer 
+#textContainerSep18
+{
+    font-family: ;
+}
+
+.timer 
 {
     position: absolute;
 
@@ -209,12 +226,12 @@ main
 
     transform: translate(-50%, -50%);
 
-    font-size: 14.53cqh;
+    font-size: 12.55cqh;
 }
 
 @media screen and (max-width: 600px) {
     #timer {
-        font-size: 12.53cqh;
+        font-size: 11.53cqh;
     }
 }
 
@@ -225,8 +242,11 @@ footer
     background-color: var(--bg);
 
     min-height: 50px;
+    max-height: 50px;
 
-    padding: 15px;
+    font-size: 100%;
+
+    padding: 20px;
 
     display: flex;
     align-items: center;
