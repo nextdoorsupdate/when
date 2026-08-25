@@ -33,7 +33,7 @@
 
     <main>   
         <div class="button">
-            <button id="btn" onclick="btnClick(this)"> show days </button>
+            <button id="btn" onclick="btnClick(this)"> show hours </button>
         </div>
         <div class="container">
             <div id="timerImg" oncontextmenu="return false;"></div>
@@ -54,10 +54,11 @@
 
 <script>
 
+    let intervall;
     let update = new Date("2026-08-28T20:00:00+02:00").getTime();
     let timer = document.getElementById("timer");
 
-    let days = false;
+    let days = true;
 
     function changeActive(newActive)
     {
@@ -76,7 +77,6 @@
         days = !days; 
         calcTime(); 
 
-        timer.style.fontSize = days? "6.4vw" : "8.4vw";
         btn.textContent = days? "show hours" : "show days";
     }
 
@@ -119,7 +119,7 @@
     window.onload = function () 
     {
         calcTime();
-        let interval = setInterval(function () 
+        interval = setInterval(function () 
         {
             calcTime();
         }, 1000);   
