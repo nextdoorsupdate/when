@@ -195,7 +195,7 @@ main
     background-size: cover;
 }
 
-#timerSep18
+#bgSep18
 {
     background-image: url("assets/old_bg_glitch.png");
 }
@@ -212,9 +212,11 @@ main
         
 }
 
-#textContainerSep18
+#timerSep18
 {
-    font-family: ;
+    color: black;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px #fff;
+    font-family: 'Cobbler Sans', sans-serif;;
 }
 
 .timer 
