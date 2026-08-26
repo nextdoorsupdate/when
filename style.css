@@ -132,9 +132,10 @@ a.active
 }
 
 button 
-{
+{  
+    position: absolute;
+
     z-index: 10;
-    position: fixed;
     left: 5px;
     top: 125px;
 
@@ -216,7 +217,7 @@ main
 {
     color: black;
     text-shadow: -1px -1px 0 #fff, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px #fff;
-    font-family: 'SK Selanik Rounded';
+    font-family: "Cobbler Sans", sans-serif;
 }
 
 .timer 
