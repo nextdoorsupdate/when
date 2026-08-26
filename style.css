@@ -216,7 +216,7 @@ main
 {
     color: black;
     text-shadow: -1px -1px 0 #fff, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px #fff;
-    font-family: 'Cobbler Sans', sans-serif;;
+    font-family: 'SK Selanik Rounded';
 }
 
 .timer 
@@ -240,7 +240,8 @@ main
 
     #logo
     {
-        margin: 0px;
+        margin-right: 5px;
+        margin-left: 10px;
     }
 
     nav a
