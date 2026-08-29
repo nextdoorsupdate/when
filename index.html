@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/c08e3c752be96e9ae70201b6bd183ca6?family=Cobbler+Sans" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="assets/clock.ico">
 
@@ -18,28 +20,28 @@
     <meta content="#FFDEBD" data-react-helmet="true" name="theme-color" />
 
 </head>
-<body style="background-color: black;">  
+
+<body style="background-color: black;">
 
     <header>
         <div id="logo"></div>
         <nav class="navbar">
             <ul>
-                <li><a href="" class="active navlink" onclick="changeActive(this)">Archives Update</a></li>
-                <li><a href="sep18.html" class="navlink" onclick="changeActive(this)">??? Update</a></li>
-                <!--<li><a href="glitch.html" class="navlink" onclick="changeActive(this)">Floor 3 Update (Page Not Finished)</a></li>-->
+                <li><a href="archives.html" class="navlink" onclick="changeActive(this)">Archives Update</a></li>
+                <li><a href="index.html" class="active navlink" onclick="changeActive(this)">??? Update</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>   
+    <main>
         <div class="button">
             <button id="btn" onclick="btnClick(this)"> show hours </button>
         </div>
         <div class="container">
-            <div class="timerImg" id="bgArchives" oncontextmenu="return false;"></div>
-        
-            <div class="textcontainer" id="textContainerArchives">
-                <span class="timer" id="timerArchives"> ... </span>
+            <div class="timerImg" id="bgSep18" oncontextmenu="return false;"></div>
+
+            <div class="textcontainer" id="textcontainerSep18">
+                <span class="timer" id="timerSep18"> ... </span>
             </div>
         </div>
     </main>
@@ -47,88 +49,87 @@
     <footer>
         <div>
             <span>
-                <a class="DOORS" href="https://www.roblox.com/games/6516141723/DOORS">DOORS 👁️</a> by <a class="LSPLASH" href="https://www.roblox.com/communities/3049798/LSPLASH">LSPLASH</a>. This website is not affiliated in any way with <a class="LSPLASH" href="https://www.roblox.com/communities/3049798/LSPLASH">LSPLASH</a> or any of the developers or the game or anything at all. 
+                <a class="DOORS" href="https://www.roblox.com/games/6516141723/DOORS">DOORS 👁️</a> by <a
+                    class="LSPLASH" href="https://www.roblox.com/communities/3049798/LSPLASH">LSPLASH</a>. This website
+                is not affiliated in any way with <a class="LSPLASH"
+                    href="https://www.roblox.com/communities/3049798/LSPLASH">LSPLASH</a> or any of the developers or
+                the game or anything at all.
             </span>
         </div>
     </footer>
 
-<script>
+    <script>
 
-    let interval;
-    let update = new Date("2026-08-28T20:00:00+02:00").getTime();
-    let timer = document.getElementById("timerArchives");
+        let interval;
+        let update = new Date("2026-09-18T20:00:00+02:00").getTime();
+        let timer = document.getElementById("timerSep18");
 
-    let days = true;
+        let days = true;
 
-    function changeActive(newActive)
-    {
-        let navs = document.getElementsByClassName("navlink");
+        function changeActive(newActive) {
+            let navs = document.getElementsByClassName("navlink");
 
-        for(let i of navs)
-        {
-            i.classList.remove("active");
+            for (let i of navs) {
+                i.classList.remove("active");
+            }
+
+            newActive.classList.add("active");
         }
 
-        newActive.classList.add("active");
-    }
-
-    function btnClick(btn)
-    {
-        days = !days; 
-        calcTime(); 
-
-        btn.textContent = days? "show hours" : "show days";
-    }
-
-    function calcTime() 
-    {
-        let now = new Date().getTime();
-        let time = Math.floor((update - now) / 1000);
-
-        if (time <= 0) 
-        {
-            clearInterval(interval);
-            timer.textContent = "OUT NOW";
-            document.title = "OUT NOW";
-            return;
-        }
-
-        let d = 0;
-        let h = Math.floor(time / 3600);
-        let m = Math.floor((time % 3600) / 60);
-        let s = time % 60;
-
-        if (days) {
-            d = Math.floor(h / 24);
-            h = Math.floor(h % 24);
-
-            d = d < 10 ? "0" + d : d;
-            d = d <= 0 ? "" : d + ":";
-        }
-
-        h = h < 10 ? "0" + h : h;
-        h = (h <= 0 && days && d <= 0) ? "" : h + ":";
-
-        m = m < 10 ? "0" + m : m;
-        m = (m <= 0 && h <= 0) ? "" : m + ":";
-
-        s = s < 10 ? "0" + s : s;
-
-        let out = (days ? d : "") + h + m + s;
-        timer.textContent = out;
-        document.title = out;
-
-    }
-
-    window.onload = function () 
-    {
-        calcTime();
-        interval = setInterval(function () 
-        {
+        function btnClick(btn) {
+            days = !days;
             calcTime();
-        }, 500);   
-    };
 
-</script>
+            btn.textContent = days ? "show hours" : "show days";
+        }
+
+        function calcTime() {
+            let now = new Date().getTime();
+            let time = Math.floor((update - now) / 1000);
+
+            if (time <= 0) 
+            {
+                clearInterval(interval);
+                timer.textContent = "OUT NOW";
+                document.title = "OUT NOW";
+                return;
+            }
+
+            let d = 0;
+            let h = Math.floor(time / 3600);
+            let m = Math.floor((time % 3600) / 60);
+            let s = time % 60;
+
+            if (days) 
+            {
+                d = Math.floor(h / 24);
+                h = Math.floor(h % 24);
+
+                d = d < 10 ? "0" + d : d;
+                d = d <= 0 ? "" : d + ":";
+            }
+
+            h = h < 10 ? "0" + h : h;
+            h = (h <= 0 && days && d <= 0)? "" : h + ":";
+
+            m = m < 10 ? "0" + m : m;
+            m = (m <= 0 && h <= 0) ? "" : m + ":";
+
+            s = s < 10 ? "0" + s : s;
+
+            let out = (days ? d : "") + h + m + s;
+            timer.textContent = out;
+            document.title = out;
+        }
+
+        window.onload = function () {
+            calcTime();
+            interval = setInterval(function () {
+                calcTime();
+            }, 500);
+        };
+
+    </script>
 </body>
+
 </html>
